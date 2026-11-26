@@ -1,0 +1,124 @@
+/* Contenedor externo para posicionar las luces detrás */
+.weather-wrapper {
+  position: relative;
+  max-width: 450px;
+  margin: 60px auto;
+}
+.weather-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(135deg, #38bdf8, #818cf8);
+  border-radius: 50%;
+  filter: blur(25px);
+  z-index: 0;
+  animation: floatOrb1 8s infinite alternate ease-in-out;
+}
+.weather-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  right: -20px;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #f472b6, #fb923c);
+  border-radius: 50%;
+  filter: blur(30px);
+  z-index: 0;
+  animation: floatOrb2 10s infinite alternate ease-in-out;
+}
+@keyframes floatOrb1 {
+  0% {
+    transform: translate(100, 23) scale(1);
+  }
+  100% {
+    transform: translate(120px, 80px) scale(1.5);
+  }
+}
+
+@keyframes floatOrb2 {
+  0% {
+    transform: translate(100, 23) scale(1);
+  }
+  100% {
+    transform: translate(-110px, -90px) scale(1.2);
+  }
+}
+
+
+.weather-container {
+  position: relative;
+  z-index: 1;
+  padding: 2.5rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+}
+.weather-title {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(90deg, #0284c7, #4f46e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.weather-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.weather-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #334155;
+}
+.weather-input {
+  padding: 0.85rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.75);
+  color: #0f172a;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.weather-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+  background-color: #ffffff;
+}
+.weather-button {
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #3b82f6 0%, #4f46e5 100%);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px -4px rgba(79, 70, 229, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.weather-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -4px rgba(79, 70, 229, 0.5);
+}
+.weather-button:active {
+  transform: translateY(0);
+}
+.weather-list-wrapper {
+  margin-top: 2rem;
+}
